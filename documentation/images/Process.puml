@@ -1,0 +1,24 @@
+@startuml
+
+package ".obj file" as objFile {
+    note "o Plane\nv -1.000000 -1.000000 -0.000000\nv 1.000000 -1.000000 -0.000000\nv -1.000000 1.000000 0.000000\nv 1.000000 1.000000 0.000000\nvt 1.000000 0.000000\nvt 0.000000 1.000000\nvt 0.000000 0.000000\nvt 1.000000 1.000000\nvn 0.0000 1.0000 0.0000\nf 2/1/1 3/2/1 1/3/1\nf 2/1/1 4/4/1 3/2/1" as N1
+}
+
+component WavefrontReader {
+    component FileUtilities
+    component ExtractorService
+    component TransformerService
+}
+
+rectangle "record: Wavefront" as Wavefront {
+    note "float[] vertices\nfloat[] textureCoordinates\nfloat[] normals" as N2
+}
+
+FileUtilities -down-> ExtractorService : List<String>
+ExtractorService -down-> TransformerService : FileData
+objFile -down-> FileUtilities
+TransformerService -down-> Wavefront
+
+caption Overview of the process
+
+@enduml
