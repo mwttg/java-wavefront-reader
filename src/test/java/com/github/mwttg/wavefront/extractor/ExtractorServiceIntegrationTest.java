@@ -40,13 +40,13 @@ public class ExtractorServiceIntegrationTest {
                         new Vector3f(0.0f, 1.0f, 0.0f)),
                 List.of(
                         new Triangle(
-                                new Index(2, 1, 1),
-                                new Index(3, 2, 1),
-                                new Index(1, 3, 1)),
+                                new Index(1, 0, 0),
+                                new Index(2, 1, 0),
+                                new Index(0, 2, 0)),
                         new Triangle(
-                                new Index(2, 1, 1),
-                                new Index(4, 4, 1),
-                                new Index(3, 2, 1)))));
+                                new Index(1, 0, 0),
+                                new Index(3, 3, 0),
+                                new Index(2, 1, 0)))));
     }
 
     @Test
@@ -65,13 +65,13 @@ public class ExtractorServiceIntegrationTest {
                         new Vector3f(0.0f, 1.0f, 0.0f)),
                 List.of(
                         new Triangle(
-                                new Index(2, null, 1),
-                                new Index(3, null, 1),
-                                new Index(1, null, 1)),
+                                new Index(1, null, 0),
+                                new Index(2, null, 0),
+                                new Index(0, null, 0)),
                         new Triangle(
-                                new Index(2, null, 1),
-                                new Index(4, null, 1),
-                                new Index(3, null, 1)))));
+                                new Index(1, null, 0),
+                                new Index(3, null, 0),
+                                new Index(2, null, 0)))));
     }
 
     @Test
@@ -93,13 +93,13 @@ public class ExtractorServiceIntegrationTest {
                 List.of(),
                 List.of(
                         new Triangle(
+                                new Index(1, 0, null),
                                 new Index(2, 1, null),
-                                new Index(3, 2, null),
-                                new Index(1, 3, null)),
+                                new Index(0, 2, null)),
                         new Triangle(
-                                new Index(2, 1, null),
-                                new Index(4, 4, null),
-                                new Index(3, 2, null)))));
+                                new Index(1, 0, null),
+                                new Index(3, 3, null),
+                                new Index(2, 1, null)))));
     }
 
     @Test
@@ -117,13 +117,13 @@ public class ExtractorServiceIntegrationTest {
                 List.of(),
                 List.of(
                         new Triangle(
+                                new Index(1, null, null),
                                 new Index(2, null, null),
-                                new Index(3, null, null),
-                                new Index(1, null, null)),
+                                new Index(0, null, null)),
                         new Triangle(
-                                new Index(2, null, null),
-                                new Index(4, null, null),
-                                new Index(3, null, null)))));
+                                new Index(1, null, null),
+                                new Index(3, null, null),
+                                new Index(2, null, null)))));
     }
 
     @Test

@@ -10,28 +10,28 @@ public class IndexExtractorTest {
     public void testFrom_Type1() {
         final var definition = "1";
         final var actual = IndexExtractor.from(definition);
-        assertThat(actual).isEqualTo(new Index(1, null, null));
+        assertThat(actual).isEqualTo(new Index(0, null, null));
     }
 
     @Test
     public void testFrom_Type2() {
         final var definition = "1/2";
         final var actual = IndexExtractor.from(definition);
-        assertThat(actual).isEqualTo(new Index(1, 2, null));
+        assertThat(actual).isEqualTo(new Index(0, 1, null));
     }
 
     @Test
     public void testFrom_Type3() {
         final var definition = "1//2";
         final var actual = IndexExtractor.from(definition);
-        assertThat(actual).isEqualTo(new Index(1, null, 2));
+        assertThat(actual).isEqualTo(new Index(0, null, 1));
     }
 
     @Test
     public void testFrom_Type4() {
         final var definition = "1/2/3";
         final var actual = IndexExtractor.from(definition);
-        assertThat(actual).isEqualTo(new Index(1, 2, 3));
+        assertThat(actual).isEqualTo(new Index(0, 1, 2));
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)

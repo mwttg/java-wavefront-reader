@@ -7,3 +7,8 @@ A library for reading wavefront files (.obj / .mtl).
 * Maven 3.8.1
 
 
+
+TODO java DOC 1!!!
+
+Logger???
+

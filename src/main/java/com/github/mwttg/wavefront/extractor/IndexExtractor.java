@@ -9,28 +9,38 @@ final class IndexExtractor {
     private IndexExtractor() {
     }
 
+    /**
+     * Todo
+     * <p>
+     * Additional information:
+     * From the indices (from .obj file) is subtracted by 1, because in .obj file
+     * the indices are starting with 1 but Java Array indices are starting by 0.
+     *
+     * @param definition
+     * @return
+     */
     static Index from(final String definition) {
         final var type = Type.getTypeFrom(definition);
         final var parts = definition.split(SEPARATOR);
         switch (type) {
             case TYPE1 -> {
-                final var vertexIndex = Integer.parseInt(parts[0]);
+                final var vertexIndex = Integer.parseInt(parts[0]) - 1;
                 return new Index(vertexIndex, null, null);
             }
             case TYPE2 -> {
-                final var vertexIndex = Integer.parseInt(parts[0]);
-                final var uvIndex = Integer.parseInt(parts[1]);
+                final var vertexIndex = Integer.parseInt(parts[0]) - 1;
+                final var uvIndex = Integer.parseInt(parts[1]) - 1;
                 return new Index(vertexIndex, uvIndex, null);
             }
             case TYPE3 -> {
-                final var vertexIndex = Integer.parseInt(parts[0]);
-                final var normalIndex = Integer.parseInt(parts[2]);
+                final var vertexIndex = Integer.parseInt(parts[0]) - 1;
+                final var normalIndex = Integer.parseInt(parts[2]) - 1;
                 return new Index(vertexIndex, null, normalIndex);
             }
             case TYPE4 -> {
-                final var vertexIndex = Integer.parseInt(parts[0]);
-                final var uvIndex = Integer.parseInt(parts[1]);
-                final var normalIndex = Integer.parseInt(parts[2]);
+                final var vertexIndex = Integer.parseInt(parts[0]) - 1;
+                final var uvIndex = Integer.parseInt(parts[1]) - 1;
+                final var normalIndex = Integer.parseInt(parts[2]) - 1;
                 return new Index(vertexIndex, uvIndex, normalIndex);
             }
         }

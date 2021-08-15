@@ -12,9 +12,9 @@ public class FaceExtractorTest {
         final var actual = FaceExtractor.from(parts);
 
         assertThat(actual).isEqualTo(new Triangle(
+                new Index(0, null, null),
                 new Index(1, null, null),
-                new Index(2, null, null),
-                new Index(3, null, null)));
+                new Index(2, null, null)));
     }
 
     @Test
@@ -23,9 +23,9 @@ public class FaceExtractorTest {
         final var actual = FaceExtractor.from(parts);
 
         assertThat(actual).isEqualTo(new Triangle(
+                new Index(0, 3, null),
                 new Index(1, 4, null),
-                new Index(2, 5, null),
-                new Index(3, 6, null)));
+                new Index(2, 5, null)));
     }
 
     @Test
@@ -34,9 +34,9 @@ public class FaceExtractorTest {
         final var actual = FaceExtractor.from(parts);
 
         assertThat(actual).isEqualTo(new Triangle(
+                new Index(0, null, 3),
                 new Index(1, null, 4),
-                new Index(2, null, 5),
-                new Index(3, null, 6)));
+                new Index(2, null, 5)));
     }
 
     @Test
@@ -45,9 +45,9 @@ public class FaceExtractorTest {
         final var actual = FaceExtractor.from(parts);
 
         assertThat(actual).isEqualTo(new Triangle(
+                new Index(0, 3, 6),
                 new Index(1, 4, 7),
-                new Index(2, 5, 8),
-                new Index(3, 6, 9)));
+                new Index(2, 5, 8)));
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
