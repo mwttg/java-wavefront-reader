@@ -20,7 +20,7 @@ call the following function:
 WavefrontReader.fromResource(filename)
 ```
 
-* filename is the path and filename to the `.obj` file in your resource folder.
+* `filename` is the path and filename to the `.obj` file in your resource folder.
 
 This returns a `Wavefront` data structure with filled float arrays for:
 
