@@ -2,6 +2,9 @@ package com.github.mwttg.wavefront.extractor;
 
 import java.util.regex.Pattern;
 
+/**
+ * Used for extracting the index definition of the .obj face definition.
+ */
 final class IndexExtractor {
 
     private static final String SEPARATOR = "/";
@@ -10,14 +13,15 @@ final class IndexExtractor {
     }
 
     /**
-     * Todo
+     * Takes an index definition of one point of a face definition of the .obj file and
+     * transforms it to an internal data model {@link Index}.
      * <p>
      * Additional information:
-     * From the indices (from .obj file) is subtracted by 1, because in .obj file
+     * The indices (from .obj file) are subtracted by 1, because in .obj file
      * the indices are starting with 1 but Java Array indices are starting by 0.
      *
-     * @param definition
-     * @return
+     * @param definition a index definition (e.g. '1//2')
+     * @return the indices of the vertex and if available texture coordinate and/or normal
      */
     static Index from(final String definition) {
         final var type = Type.getTypeFrom(definition);

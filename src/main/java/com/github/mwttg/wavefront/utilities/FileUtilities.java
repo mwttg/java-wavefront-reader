@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Utility class for file stuff
+ * Utility class for reading text files
  */
 public class FileUtilities {
 
@@ -21,7 +21,7 @@ public class FileUtilities {
      * reads a text file from the resource folder
      *
      * @param filename path to the resource file
-     * @return the file's content
+     * @return the lines of the file (the content)
      * @throws IOException if read fails for any reason
      */
     public static List<String> readFromResources(final String filename) throws IOException {

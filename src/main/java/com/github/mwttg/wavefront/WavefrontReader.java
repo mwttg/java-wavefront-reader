@@ -30,7 +30,7 @@ public final class WavefrontReader {
     }
 
     /**
-     * reads an .obj file from the resource folder
+     * Reads an .obj file from the resource folder
      *
      * @param filename path to the file inside the resource folder
      * @return a {@link Wavefront} data structure (float array)

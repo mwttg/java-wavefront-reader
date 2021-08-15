@@ -2,11 +2,21 @@ package com.github.mwttg.wavefront.transformer;
 
 import com.github.mwttg.wavefront.extractor.FileData;
 
+/**
+ * A function for transforming the internal data model {@link FileData} to multiple float Arrays (used by OpenGL)
+ */
 public final class TransformerService {
 
     private TransformerService() {
     }
 
+    /**
+     * Takes the internal data model {@link FileData} (of an .obj file) and transforms it to a
+     * data model {@link Wavefront}.
+     *
+     * @param data internal representation of an .obj file
+     * @return a {@link Wavefront} holding float Array for vertices and if available texture coordinates and/or normals
+     */
     public static Wavefront transform(final FileData data) {
         final var originalVertices = data.vertices();
         final var originalTextureCoordinates = data.textureCoordinates();

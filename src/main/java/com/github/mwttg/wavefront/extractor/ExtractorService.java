@@ -6,6 +6,9 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A function for transforming the content of the .obj file for later processing.
+ */
 public final class ExtractorService {
 
     private static final String SPACE = " ";
@@ -13,6 +16,18 @@ public final class ExtractorService {
     private ExtractorService() {
     }
 
+    /**
+     * Processes each line of the obj file and transforms it to an internal data structure {@link FileData}.
+     * The transformation depends on the token of the line of the .obj file. Only 3D data is supported.
+     * v - vertex
+     * vt - texture coordinate (uv)
+     * vn - normal
+     * f - face (only triangles are supported)
+     * Unknown token will get NOT processed.
+     *
+     * @param lines the lines of the obj file
+     * @return the data structure {@link FileData} for later processing
+     */
     public static FileData extractFrom(final List<String> lines) {
         final var vertices = new ArrayList<Vector3f>();
         final var textureCoords = new ArrayList<Vector2f>();
