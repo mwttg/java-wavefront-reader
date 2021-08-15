@@ -2,18 +2,18 @@ package com.github.mwttg.wavefront.extractor;
 
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtractorService {
+public final class ExtractorService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ExtractorService.class);
     private static final String SPACE = " ";
 
-    public FileData extractFrom(final List<String> lines) {
+    private ExtractorService() {
+    }
+
+    public static FileData extractFrom(final List<String> lines) {
         final var vertices = new ArrayList<Vector3f>();
         final var textureCoords = new ArrayList<Vector2f>();
         final var normals = new ArrayList<Vector3f>();

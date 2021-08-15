@@ -2,17 +2,20 @@ package com.github.mwttg.wavefront.transformer;
 
 import com.github.mwttg.wavefront.extractor.FileData;
 
-public class TransformerService {
+public final class TransformerService {
 
-    public Wavefront transform(final FileData data) {
+    private TransformerService() {
+    }
+
+    public static Wavefront transform(final FileData data) {
         final var originalVertices = data.vertices();
         final var originalTextureCoordinates = data.textureCoordinates();
         final var originalNormals = data.normals();
         final var originalFaces = data.faces();
 
         final var resultVertices = new float[originalFaces.size() * 3 * 3];
-        final var resultTextureCoordinates = new float[originalFaces.size() * 3 * 2];
-        final var resultNormals = new float[originalFaces.size() * 3 * 3];
+        float[] resultTextureCoordinates = null;
+        float[] resultNormals = null;
 
         for (int index = 0; index < originalFaces.size(); index++) {
             final var triangle = originalFaces.get(index);
@@ -39,6 +42,10 @@ public class TransformerService {
             resultVertices[index * 9 + 8] = vertex3.z();
 
             if (point1.textureCoordinate() != null) {  // simple check which wavefront file type we have
+                if (resultTextureCoordinates == null) {
+                    resultTextureCoordinates = new float[originalFaces.size() * 3 * 2];
+                }
+
                 final var uvIndexPoint1 = point1.textureCoordinate();
                 final var uv1 = originalTextureCoordinates.get(uvIndexPoint1);
                 resultTextureCoordinates[index * 6] = uv1.x();
@@ -56,6 +63,10 @@ public class TransformerService {
             }
 
             if (point1.normal() != null) {  // simple check which wavefront file type we have
+                if (resultNormals == null) {
+                    resultNormals = new float[originalFaces.size() * 3 * 3];
+                }
+
                 final var normalIndexPoint1 = point1.normal();
                 final var normal1 = originalNormals.get(normalIndexPoint1);
                 resultNormals[index * 9] = normal1.x();

@@ -1,6 +1,5 @@
 package com.github.mwttg.wavefront.extractor;
 
-import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.testng.annotations.Test;
 
