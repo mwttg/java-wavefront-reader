@@ -1,4 +1,4 @@
-[![Master Build](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml)
+[![Master Build](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/mwttg/wavefront-reader/branch/master/graph/badge.svg?token=FTO54B66BH)](https://codecov.io/gh/mwttg/wavefront-reader)
 
 
 # Java Wavefront Reader
