@@ -1,5 +1,6 @@
-[![Master Build](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/mwttg/wavefront-reader/branch/master/graph/badge.svg?token=FTO54B66BH)](https://codecov.io/gh/mwttg/wavefront-reader) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mwttg_java-wavefront-reader&metric=alert_status)](https://sonarcloud.io/dashboard?id=mwttg_java-wavefront-reader)
-
+[![Master Build](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/mwttg/wavefront-reader/branch/master/graph/badge.svg?token=FTO54B66BH)](https://codecov.io/gh/mwttg/wavefront-reader)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mwttg_java-wavefront-reader&metric=alert_status)](https://sonarcloud.io/dashboard?id=mwttg_java-wavefront-reader)
 
 # Java Wavefront Reader
 
