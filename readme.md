@@ -1,4 +1,5 @@
-![example branch parameter](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)
+[![Master Build](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml)
+
 
 # Java Wavefront Reader
 
