@@ -27,6 +27,9 @@
         <jacoco.version>0.8.7</jacoco.version>
         <mavenPluginCheckstyle.version>3.1.2</mavenPluginCheckstyle.version>
         <plantUmlJeluard.version>1.2</plantUmlJeluard.version>
+        <!-- Sonar Cloud -->
+        <sonar.organization>mwttg</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
