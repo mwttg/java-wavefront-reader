@@ -25,6 +25,6 @@ jobs:
         uses: codecov/codecov-action@v2.0.2
         with:
           token: ${{ secrets.CODE_COVERAGE_TOKEN }}
-          file: ./**/target/site/jacoco/jacoco.xml
+          file: ./target/site/jacoco/jacoco.xml
           fail_ci_if_error: true
           verbose: true
