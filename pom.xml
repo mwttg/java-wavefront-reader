@@ -24,6 +24,7 @@
         <mockito.version>3.11.2</mockito.version>
         <testng.version>7.4.0</testng.version>
         <!-- Plugins -->
+        <jacoco.version>0.8.7</jacoco.version>
         <mavenPluginCheckstyle.version>3.1.2</mavenPluginCheckstyle.version>
         <plantUmlJeluard.version>1.2</plantUmlJeluard.version>
     </properties>
@@ -85,6 +86,25 @@
                         <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
