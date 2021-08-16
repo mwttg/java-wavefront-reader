@@ -1,9 +1,8 @@
 package com.github.mwttg.wavefront.extractor;
 
+import java.util.List;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-
-import java.util.List;
 
 /**
  * The internal data structure, created from parsing the .obj file.

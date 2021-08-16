@@ -1,7 +1,8 @@
 # Java Wavefront Reader
 
-A library for reading wavefront files (.obj) and transforming them to Java Arrays of float. These arrays can then be
-used by OpenGL (for VertexBufferObjects). The arrays are collected inside a data structure called `Wavefront`.
+A library for reading wavefront files (.obj) and transforming them to Java Arrays of float. 
+These arrays can then be used by OpenGL (for VertexBufferObjects). 
+The arrays are collected inside a data structure called `Wavefront`.
 
 ## Requirements
 
