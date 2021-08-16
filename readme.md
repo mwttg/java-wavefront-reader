@@ -1,3 +1,5 @@
+![example branch parameter](https://github.com/mwttg/java-wavefront-reader/actions/workflows/build.yml/badge.svg?branch=master)
+
 # Java Wavefront Reader
 
 A library for reading wavefront files (.obj) and transforming them to Java Arrays of float. 
