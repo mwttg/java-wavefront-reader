@@ -1,5 +1,8 @@
 # History
 
+### 2021-08-16
+Add code formatter.
+
 ### 2021-08-15
 Completed the WavefrontReader.
 Cleanup the project.

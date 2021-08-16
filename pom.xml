@@ -15,12 +15,17 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Dependency Versions sorted alphabetically -->
+        <checkstyle.version>8.45.1</checkstyle.version>
         <joml.version>1.10.1</joml.version>
         <logback.version>1.2.5</logback.version>
+        <plantUml.version>8059</plantUml.version>
         <!-- Dependencies for Tests -->
         <assertJ.version>3.20.2</assertJ.version>
         <mockito.version>3.11.2</mockito.version>
         <testng.version>7.4.0</testng.version>
+        <!-- Plugins -->
+        <mavenPluginCheckstyle.version>3.1.2</mavenPluginCheckstyle.version>
+        <plantUmlJeluard.version>1.2</plantUmlJeluard.version>
     </properties>
 
     <dependencies>
@@ -58,9 +63,43 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${mavenPluginCheckstyle.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <consoleOutput>true</consoleOutput>
+                    <encoding>UTF-8</encoding>
+                    <failsOnError>true</failsOnError>
+                    <failOnViolation>true</failOnViolation>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.github.jeluard</groupId>
                 <artifactId>plantuml-maven-plugin</artifactId>
-                <version>1.2</version>
+                <version>${plantUmlJeluard.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sourceforge.plantuml</groupId>
+                        <artifactId>plantuml</artifactId>
+                        <version>${plantUml.version}</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <sourceFiles>
                         <directory>${basedir}/documentation</directory>
@@ -68,13 +107,6 @@
                     </sourceFiles>
                     <outputInSourceDirectory>true</outputInSourceDirectory>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.sourceforge.plantuml</groupId>
-                        <artifactId>plantuml</artifactId>
-                        <version>8059</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
