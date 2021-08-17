@@ -28,4 +28,41 @@ public record Wavefront(float[] vertices, float[] textureCoordinates, float[] no
     result = 31 * result + Arrays.hashCode(normals);
     return result;
   }
+
+  @Override
+  public String toString() {
+    final StringBuffer sb = new StringBuffer("Wavefront{");
+    sb.append("vertices=");
+    if (vertices == null) {
+      sb.append("null");
+    } else {
+      sb.append('[');
+      for (int i = 0; i < vertices.length; ++i) {
+        sb.append(i == 0 ? "" : ", ").append(vertices[i]);
+      }
+      sb.append(']');
+    }
+    sb.append(", textureCoordinates=");
+    if (textureCoordinates == null) {
+      sb.append("null");
+    } else {
+      sb.append('[');
+      for (int i = 0; i < textureCoordinates.length; ++i) {
+        sb.append(i == 0 ? "" : ", ").append(textureCoordinates[i]);
+      }
+      sb.append(']');
+    }
+    sb.append(", normals=");
+    if (normals == null) {
+      sb.append("null");
+    } else {
+      sb.append('[');
+      for (int i = 0; i < normals.length; ++i) {
+        sb.append(i == 0 ? "" : ", ").append(normals[i]);
+      }
+      sb.append(']');
+    }
+    sb.append('}');
+    return sb.toString();
+  }
 }
