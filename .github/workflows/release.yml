@@ -48,7 +48,7 @@ jobs:
           mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
-          author_name: automatic-release
-          author_email: no-reply@mail.com
+          author_name: 'automatic-release'
+          author_email: 'no-reply@mail.com'
           message: 'Bump up library version'
           add: '*.pom'
