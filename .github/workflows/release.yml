@@ -1,0 +1,38 @@
+name: Release java-wavefront-reader
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-tag:
+        description: 'The git tag which gets generated (also the version inside the pom.xml)'
+        required: true
+        default: v1.0.0
+      new-version:
+        description: 'The new version after the release (without SNAPSHOT)'
+        required: true
+        default: v1.0.1
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Set up JDK 16
+        uses: actions/setup-java@v2
+        with:
+          java-version: '16'
+          distribution: 'adopt'
+          architecture: x64
+      - name: Set Version
+        run: mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}}
+      - name: Create Git Tag
+        run: |
+          git tag ${{github.event.inputs.git-tag}}
+          git push origin ${{github.event.inputs.git-tag}}
+      - name: Maven build and deploy
+        run:  mvn clean deploy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mwttg_java-wavefront-reader
+      - name: Set new version
+        run: mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT
