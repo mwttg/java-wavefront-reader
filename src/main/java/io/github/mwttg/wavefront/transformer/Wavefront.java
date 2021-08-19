@@ -1,6 +1,7 @@
 package io.github.mwttg.wavefront.transformer;
 
 import java.util.Arrays;
+import java.util.StringJoiner;
 
 /**
  * The resulting data structure with float Arrays which can be used by OpenGL.
@@ -31,38 +32,10 @@ public record Wavefront(float[] vertices, float[] textureCoordinates, float[] no
 
   @Override
   public String toString() {
-    final StringBuffer sb = new StringBuffer("Wavefront{");
-    sb.append("vertices=");
-    if (vertices == null) {
-      sb.append("null");
-    } else {
-      sb.append('[');
-      for (int i = 0; i < vertices.length; ++i) {
-        sb.append(i == 0 ? "" : ", ").append(vertices[i]);
-      }
-      sb.append(']');
-    }
-    sb.append(", textureCoordinates=");
-    if (textureCoordinates == null) {
-      sb.append("null");
-    } else {
-      sb.append('[');
-      for (int i = 0; i < textureCoordinates.length; ++i) {
-        sb.append(i == 0 ? "" : ", ").append(textureCoordinates[i]);
-      }
-      sb.append(']');
-    }
-    sb.append(", normals=");
-    if (normals == null) {
-      sb.append("null");
-    } else {
-      sb.append('[');
-      for (int i = 0; i < normals.length; ++i) {
-        sb.append(i == 0 ? "" : ", ").append(normals[i]);
-      }
-      sb.append(']');
-    }
-    sb.append('}');
-    return sb.toString();
+    return new StringJoiner(", ", Wavefront.class.getSimpleName() + "[", "]")
+        .add("vertices=" + Arrays.toString(vertices))
+        .add("textureCoordinates=" + Arrays.toString(textureCoordinates))
+        .add("normals=" + Arrays.toString(normals))
+        .toString();
   }
 }
