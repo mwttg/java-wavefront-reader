@@ -27,7 +27,7 @@ jobs:
           distribution: 'adopt'
           architecture: x64
       - name: Set Version
-        run: mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}}
+        run: mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}} -DgenerateBackupPoms=false
       - name: Create Git Tag
         run: |
           git tag ${{github.event.inputs.git-tag}}
@@ -35,4 +35,4 @@ jobs:
       - name: Maven build and deploy
         run:  mvn clean deploy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mwttg_java-wavefront-reader
       - name: Set new version
-        run: mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT
+        run: mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
