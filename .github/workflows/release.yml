@@ -52,7 +52,7 @@ jobs:
           git config user.email "<>"
       - name: Create Branch
         run: |
-          git checkout -b release-${{git-tag}}
+          git checkout -b release-${{github.event.inputs.git-tag}}
           git add .
           git commit -m "Increase library version"
-          git push origin release-${{git-tag}}
+          git push origin release-${{github.event.inputs.git-tag}}
