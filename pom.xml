@@ -6,7 +6,7 @@
 
     <groupId>io.github.mwttg</groupId>
     <artifactId>java-wavefront-reader</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -25,6 +25,7 @@
         <testng.version>7.4.0</testng.version>
         <!-- Plugins -->
         <jacoco.version>0.8.7</jacoco.version>
+        <mavenGpgPlugin.version>3.0.1</mavenGpgPlugin.version>
         <mavenJavaDocPlugin.version>3.3.0</mavenJavaDocPlugin.version>
         <mavenPluginCheckstyle.version>3.1.2</mavenPluginCheckstyle.version>
         <mavenSourcePlugin.version>3.2.0</mavenSourcePlugin.version>
@@ -79,6 +80,26 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${mavenGpgPlugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>

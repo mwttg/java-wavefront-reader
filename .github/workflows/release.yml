@@ -26,13 +26,22 @@ jobs:
           java-version: '16'
           distribution: 'adopt'
           architecture: x64
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Set Version
-        run: mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}}
+        run: mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}} -DgenerateBackupPoms=false
       - name: Create Git Tag
         run: |
           git tag ${{github.event.inputs.git-tag}}
           git push origin ${{github.event.inputs.git-tag}}
-      - name: Maven build and deploy
-        run:  mvn clean deploy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mwttg_java-wavefront-reader
+      - name: Maven build, sign (GPG) and deploy
+        run: mvn clean deploy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mwttg_java-wavefront-reader
+        env:
+          MAVEN_USERNAME: ${{secrets.OSS_SONATYPE_USERNAME}}
+          MAVEN_PASSWORD: ${{secrets.OSS_SONATYPE_PASSWORD}}
+          MAVEN_GPG_PASSPHRASE: ${{secrets.MAVEN_GPG_PASSPHRASE}}
       - name: Set new version
-        run: mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT
+        run: mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
