@@ -46,9 +46,13 @@ jobs:
       - name: Set new version
         run: |
           mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
-          author_name: 'automatic-release'
-          author_email: 'no-reply@mail.com'
-          message: 'Bump up library version'
-          add: '*.pom'
+      - name: Setup Git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: Create Branch
+        run: |
+          git checkout -b release-${{git-tag}}
+          git add .
+          git commit -m "Increase library version"
+          git push origin release-${{git-tag}}
