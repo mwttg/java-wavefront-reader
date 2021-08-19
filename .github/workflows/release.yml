@@ -44,4 +44,11 @@ jobs:
           MAVEN_PASSWORD: ${{secrets.OSS_SONATYPE_PASSWORD}}
           MAVEN_GPG_PASSPHRASE: ${{secrets.MAVEN_GPG_PASSPHRASE}}
       - name: Set new version
-        run: mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
+        run: |
+          mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+          author_name: automatic-release
+          author_email: no-reply@mail.com
+          message: 'Bump up library version'
+          add: '*.pom'
