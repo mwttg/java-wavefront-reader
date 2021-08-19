@@ -16,3 +16,14 @@ See: https://dzone.com/articles/how-to-create-and-release-a-jar-to-maven-central
 it gets ignored (when build), but.... it's there
 here is the bug:
 https://issues.apache.org/jira/browse/MJAVADOC-680
+
+
+## Release stuff
+Check tags on remote:
+```
+git ls-remote --tags origin
+```
+Remove a git tag on remote (when release gone wrong) e.g:
+```
+git push --delete origin v1.0.0
+```
