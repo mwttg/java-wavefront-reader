@@ -37,12 +37,12 @@ jobs:
           git config user.email "<>"
       - name: Set release version
         run: |
+          mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}} -DgenerateBackupPoms=false
           git add .
           git commit -m "Set release version"
           git push origin master
           git tag ${{github.event.inputs.git-tag}}
           git push origin ${{github.event.inputs.git-tag}}
-          mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}} -DgenerateBackupPoms=false
       - name: Maven build, sign (GPG) and deploy
         run: mvn clean deploy
         env:
