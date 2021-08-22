@@ -44,7 +44,7 @@ jobs:
           git commit -m "Set release version"
           git push origin master
       - name: Maven build, sign (GPG) and deploy
-        run: mvn clean deploy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mwttg_java-wavefront-reader
+        run: mvn clean deploy
         env:
           MAVEN_USERNAME: ${{secrets.OSS_SONATYPE_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.OSS_SONATYPE_PASSWORD}}
