@@ -42,6 +42,7 @@ jobs:
           mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}} -DgenerateBackupPoms=false
           git add .
           git commit -m "Set release version"
+          git push origin master
       - name: Maven build, sign (GPG) and deploy
         run: mvn clean deploy org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mwttg_java-wavefront-reader
         env:
@@ -53,4 +54,4 @@ jobs:
           mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
           git add .
           git commit -m "Set new SNAPSHOT version"
-          git push origin release-${{github.event.inputs.git-tag}}
+          git push origin master
