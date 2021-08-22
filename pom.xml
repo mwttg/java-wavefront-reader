@@ -20,6 +20,13 @@
         </license>
     </licenses>
 
+    <scm>
+        <connection>scm:svn:https://github.com/mwttg/java-wavefront-reader.git</connection>
+        <developerConnection>scm:svn:https://github.com/mwttg/java-wavefront-reader.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/mwttg/java-wavefront-reader</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
