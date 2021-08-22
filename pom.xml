@@ -8,6 +8,18 @@
     <artifactId>java-wavefront-reader</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <name>java-wavefront-reader</name>
+    <description>Reading .obj file and creating a data structure for it</description>
+
+    <licenses>
+        <license>
+            <name>Berkeley Software Distribution (BSD)</name>
+            <url>https://opensource.org/licenses/BSD-2-Clause</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
