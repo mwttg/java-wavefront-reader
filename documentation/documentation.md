@@ -12,6 +12,9 @@ To generate a image from plantUML file do the following (in terminal):
 ## Set up Maven release
 See: https://dzone.com/articles/how-to-create-and-release-a-jar-to-maven-central
 
+## Sonatype
+GPG see: https://central.sonatype.org/publish/requirements/gpg/
+
 ## Maven build error
 it gets ignored (when build), but.... it's there
 here is the bug:
