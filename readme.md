@@ -37,6 +37,16 @@ This returns a `Wavefront` data structure with filled float arrays for:
 
 ![Process Overview][process-overview]
 
+## Release Notes
+
+### 2021-08-22
+Release Version 1.0.0
+
+Read an .obj file and create a `Wavefront` data structure supported is:
+* vertices
+* uv (texture coordinates)
+* normals (for light)
+
 
 [comment]: <> (collection of links sorted alphabetically ascending)
 [process-overview]: documentation/images/Process.png

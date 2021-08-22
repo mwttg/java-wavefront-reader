@@ -1,5 +1,12 @@
 # History
 
+### 2021-08-22
+Release of version 1.0.0
+
+### 2021-08-19
+Create build and release pipeline
+(simple ones that do thejob)
+
 ### 2021-08-16
 Add code formatter.
 
